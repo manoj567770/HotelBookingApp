@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const connectDB = require("./config/dbconfig");
 const hotelRouter = require("./routes/hotel.router");
@@ -16,6 +17,7 @@ const app = express();
 
 connectDB();
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("hello world");
